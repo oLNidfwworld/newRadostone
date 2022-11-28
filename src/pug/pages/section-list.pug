@@ -1,0 +1,56 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Расдел';
+  - var description = 'Расделовая струница';
+  - var pageClass = 'index';
+
+block content
+    .container 
+        .breadcrumbs 
+            .el Главная
+            .el Каталог
+            .el Раковины
+        h1.text-center.mb-15 Раковины RADOSTONE
+        .display-list
+            .top-bar
+                .img-cont.sett#sett
+                    img(src='assets/img/top-bar-settings.svg')
+                #mob-sett 
+                    .title Фильтр
+                    .inner
+                            select(id='_sort')
+                                option(value="") По наименованию (А-Я)
+                                option(value="") По наименованию (Я-А)
+                                option(value="") По популярности (возрастание)
+                                option(value="") По популярности (убывание)
+                            select(id='_filter')
+                                option(value="") В наличии
+                                option(value="") Под заказ 
+                    .button Посмотреть 1138 предложений
+                
+                input(class='search' placeholder='Поиск')
+                .display-type
+                    .img-cont.lupa
+                        img(src='assets/img/lupa.svg')
+                    .img-cont
+                        img(src='assets/img/display-type/tile-true.svg')
+                    .img-cont
+                        img(src='assets/img/display-type/list-false.svg')
+            .section
+                .el
+            .paginator 
+                .img-cont
+                    img(src='assets/img/paginator/left.svg')
+                .cont 
+                    a.el.current 1
+                    a.el 2
+                    a.el 3
+                    a.el 4
+                    a.el 5
+                .img-cont
+                    img(src='assets/img/paginator/right.svg')
+
+
+
+

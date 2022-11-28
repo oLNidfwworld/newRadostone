@@ -65,6 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const block_elements  = document.querySelectorAll('.display-block .el');
         /** @var Мобильный фильтр */
             const filter_mob  = document.querySelector('.top-bar #mob-sett');
+        /** @var Поиск */
+            const search_field  = document.querySelector('.top-bar .search');
     //#endregion 
 
     //#region Слайдеры
@@ -89,25 +91,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //#region Чойсеры
         /** @var Сортировка */
-            const sort_field = new Choices(sort_element,{
-                allowHTML:true, 
-                searchEnabled: false,
-                position:'bottom',
-                itemSelectText: '',
-                classNames:{
-                    containerOuter:'choices sort-field'
-                }
-            });
+            if(sort_element){
+                const sort_field = new Choices(sort_element,{
+                    allowHTML:true, 
+                    searchEnabled: false,
+                    position:'bottom',
+                    itemSelectText: '',
+                    classNames:{
+                        containerOuter:'choices sort-field'
+                    }
+                });
+            }
         /** @var Фильтрация */
-            const filter_field = new Choices(filter_element,{
-                allowHTML:true, 
-                searchEnabled: false,
-                position:'bottom',
-                itemSelectText: '',
-                classNames:{
-                    containerOuter:'choices filter-field'
-                }
-            });
+            if(filter_element){
+                const filter_field = new Choices(filter_element,{
+                    allowHTML:true, 
+                    searchEnabled: false,
+                    position:'bottom',
+                    itemSelectText: '',
+                    classNames:{
+                        containerOuter:'choices filter-field'
+                    }
+                });
+            }
     //#endregion 
 
 //#endregion
@@ -151,9 +157,17 @@ document.addEventListener('DOMContentLoaded', () => {
             })
         })
     }
-    filter_sort_buttond.addEventListener('click',()=>{
-        filter_mob.classList.toggle('show')
-    })
+    if(filter_sort_buttond){
+        filter_sort_buttond.addEventListener('click',()=>{
+            filter_mob.classList.toggle('show')
+        })
+    }
+    if(search_button){
+        search_button.addEventListener('click',()=>{
+            search_field.classList.toggle('show');
+        })
+    }
+    
     document.addEventListener("scroll", function () {
         var st = window.pageYOffset;
         if (window.pageYOffset > 115) {

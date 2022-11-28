@@ -283,9 +283,8 @@ hr.rounded-\[90px\]{
 
     }
 }
-
-.display-block,.display-list{
-    .paginator{
+ 
+.paginator{
         @apply flex items-center gap-5 mt-20;
         .cont{
             @apply flex flex-row gap-5;
@@ -304,7 +303,6 @@ hr.rounded-\[90px\]{
         }
         
         
-    }
 }
 
 .display-block{
@@ -374,8 +372,9 @@ hr.rounded-\[90px\]{
         }.hover{
             z-index: 2;
             .wrapper{
+                @apply static md:absolute;
                 z-index: 4 !important;
-                position: absolute;
+                
                 //  width: 117%;
                 // left: -8%;
                 transition:  0.65s;
@@ -527,6 +526,13 @@ hr.rounded-\[90px\]{
     }
     .lupa{
         @apply llg:hidden;
+    }
+    .search.show{
+        @apply  absolute w-full;
+        z-index: 4;
+        top: 100%;
+        margin: 20px 0 ;
+        display: block !important;
     }
     #mob-sett{
         @apply absolute bg-white md:static hidden md:block p-5 md:p-0;
