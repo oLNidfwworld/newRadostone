@@ -1,0 +1,21 @@
+include ../mixins/mixins
+block variables
+
+doctype html
+html(lang='en')
+  head 
+    meta(charset='utf-8')
+    title #{title}
+    meta(name="description", content=description)
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no") 
+    block head
+
+  body(class="debug-screens")
+    .wrapper
+      .wrapper-page
+        include ../includes/header
+        .wrapper-content
+          block content
+        include ../includes/footer
+    block script

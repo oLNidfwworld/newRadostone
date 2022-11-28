@@ -1,0 +1,118 @@
+header{
+
+    @apply bg-white fixed w-full;
+    z-index: 100;
+    top: 0px;
+    transition: 0.6s;
+    .header-line{
+        @apply grid items-center ; 
+        grid-template-columns: 1fr 1fr; 
+        padding: 38px 0 ;
+
+        .header-link.current{
+
+        }::after{
+            content:'';
+        }
+        
+
+        .language{
+            @apply relative hidden lg:block;
+            cursor: pointer;
+            .current{
+                @apply flex flex-row gap-2 items-center justify-end;
+            }
+            .select{
+                display: none;
+                position: absolute;
+                left:5px;
+                background: rgba(217, 217, 217, 0.9);
+                box-shadow: 0px 29px 30px rgba(50, 65, 75, 0.09);
+                top: 64px;
+                .el{
+                    @apply flex flex-row gap-2 items-center justify-end;
+                    padding: 14px 18px;
+                }
+            }
+            .select.drop{
+                display: block;
+            }
+        }
+        
+        .burger-button{
+            cursor: pointer;
+            @apply justify-self-end xl:hidden;
+        }
+        
+    }
+
+    
+}
+
+header.hide{
+    top: -105px;
+    transition: 0.6s;
+}
+
+.burger{
+    width: 320px;
+    height: 575px;
+    position: absolute;
+    background-color: var(--white);
+    top: 0;
+    left: -320px;
+    transition: 0.45s ease;
+    
+
+    .cnt{
+        padding:42px 59px ;
+    }
+
+    #close-burger{
+        @apply right-[16px] top-[49px] absolute;
+        cursor: pointer;
+    }
+
+    .language{
+        @apply flex flex-row bg-gray gap-[20px];
+        .el{
+            @apply flex flex-row gap-[10px];
+        }
+    }
+
+}
+.burger.move{
+    left: 0px;
+    transition: 0.45s ease;
+}
+
+
+@media (min-width:480px) {
+    header{
+        .header-line{
+            grid-template-columns: 2fr 1fr 2fr;
+            gap:20px
+        } 
+    }
+    
+}
+@media (min-width:720px) {
+    
+}
+@media (min-width:1024px) {
+    header{
+        .header-line{
+            grid-template-columns: 3fr 1fr 1fr 0.5fr;
+        }
+    }
+}
+@media (min-width:1280px) {
+    
+}
+@media (min-width:1440px) {
+    header{
+        .header-line{
+            grid-template-columns: 1fr 6fr 1fr 0.5fr;
+        }
+    }
+}

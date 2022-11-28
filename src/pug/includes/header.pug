@@ -1,0 +1,64 @@
+header 
+    .container 
+        .header-line
+            .w-fit 
+                img(src='assets/img/logo.svg')
+            .flex-row.gap-10.uppercase.justify-center(class='hidden  xl:flex')
+                a.header-link  О нас 
+                a.header-link Сотрудничество 
+                a(href='/catalog.html').header-link Каталог 
+                a.header-link Как купить? 
+                a.header-link Изготовление на заказ 
+                a.header-link О камне 
+                a.header-link Контакты 
+            .burger-button
+                <svg width="42" height="22" viewBox="0 0 42 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="42" height="2" fill="#32383C"/>
+                    <rect y="10" width="42" height="2" fill="#32383C"/>
+                    <rect y="20" width="42" height="2" fill="#32383C"/>
+                </svg>
+
+            .justify-self-end.text-20px(class='hidden sm:block') +7 985 506-38-82
+            .language
+                .current 
+                    img(src='assets/img/lang/ru.png')
+                    span RU
+                    .strelkra-vniz 
+                        img(src='assets/img/vniz.png')
+                .select 
+                    .el 
+                        img(src='assets/img/lang/en.png')
+                        span EN
+                    .el
+                        img(src='assets/img/lang/srb.png')
+                        span SR
+    .burger
+        .cnt
+            #close-burger
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="10.7146" y="12.1289" width="15" height="1.97985" transform="rotate(-135 10.7146 12.1289)" fill="#32383C"/>
+                <rect y="10.6064" width="15" height="1.97985" transform="rotate(-45 0 10.6064)" fill="#32383C"/>
+                </svg>
+
+            img(src='assets/img/logo-expanded.svg' class='mb-[60px]')
+            .flex.flex-col.uppercase(class='gap-[30px]')
+                a.header-link  О нас 
+                a.header-link Сотрудничество 
+                a(href='/catalog.html').header-link Каталог 
+                a.header-link Как купить? 
+                a.header-link Изготовление на заказ 
+                a.header-link О камне 
+                a.header-link Контакты
+                a.header-link.text-20px +7 985 506-38-82
+        .bg-gray
+            .cnt
+                .language
+                    .el 
+                        img(src='assets/img/lang/en.png')
+                        span EN
+                    .el
+                        img(src='assets/img/lang/srb.png')
+                        span SR
+                    .el    
+                        img(src='assets/img/lang/ru.png')
+                        span RU

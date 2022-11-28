@@ -1,0 +1,227 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Расдел';
+  - var description = 'Расделовая струница';
+  - var pageClass = 'index';
+  
+block content
+    .container 
+        .breadcrumbs 
+            .el Главная
+            .el Каталог
+            .el Раковины
+        h1.text-center.mb-15 Раковины RADOSTONE
+        .display-block
+            .top-bar
+                .img-cont.sett#sett
+                    img(src='assets/img/top-bar-settings.svg')
+                #mob-sett 
+                    .title Фильтр
+                    .inner
+                            select(id='_sort')
+                                option(value="") По наименованию (А-Я)
+                                option(value="") По наименованию (Я-А)
+                                option(value="") По популярности (возрастание)
+                                option(value="") По популярности (убывание)
+                            select(id='_filter')
+                                option(value="") В наличии
+                                option(value="") Под заказ 
+                    .button Посмотреть 1138 предложений
+                
+                input(class='search' placeholder='Поиск')
+                .display-type
+                    .img-cont.lupa
+                        img(src='assets/img/lupa.svg')
+                    .img-cont
+                        img(src='assets/img/display-type/tile-true.svg')
+                    .img-cont
+                        img(src='assets/img/display-type/list-false.svg')
+            .section
+                .el
+                    .wrapper
+                        .mini-gallery
+                            .swiper-wrapper
+                                .swiper-slide 
+                                    .img-cont 
+                                            img(src='assets/img/section/1.png') 
+                                .swiper-slide 
+                                    .img-cont 
+                                            img(src='assets/img/section/1.png') 
+                                .swiper-slide 
+                                    .img-cont 
+                                            img(src='assets/img/section/1.png') 
+                            .swiper-pagination
+                        .title Раковина «Alba»   
+                        .info
+                            .prop Размеры: ⌀ 405; h=150
+                            .flex.justify-between
+                                div
+                                    .instock 
+                                        <svg width="5" height="6" viewBox="0 0 5 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect y="0.5" width="5" height="5" rx="2.5" fill="#32383C"/>
+                                        </svg>
+                                        |Под заказ
+                                    .price Цена от: 120 000 ₽
+                                .button 
+                                    img(src='assets/img/incart.svg')
+                            .color-pick
+                                .text-gray Цвет: белый
+                                .colors 
+                                    .el.current Белый
+                                    .el Белый/Чёрный
+                                    .el Белый/Серый
+                                    .el Бежевый
+                                    .el Кремовый
+                                    .el Оливковый
+                                    .el Серый
+                                    .el Голубой
+                                    .el Бордовый
+                
+                .el
+                    .wrapper
+                        .mini-gallery
+                            .swiper-wrapper
+                                .swiper-slide 
+                                    .img-cont 
+                                            img(src='assets/img/section/2.png') 
+                                .swiper-slide 
+                                    .img-cont 
+                                            img(src='assets/img/section/2.png') 
+                                .swiper-slide 
+                                    .img-cont 
+                                            img(src='assets/img/section/2.png') 
+                            .swiper-pagination
+                        .title раковина «Gratsiya»  
+                        .info
+                            .prop Размеры: 600х345х150  
+                            .flex.justify-between
+                                div
+                                    .instock 
+                                        <svg width="5" height="6" viewBox="0 0 5 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect y="0.5" width="5" height="5" rx="2.5" fill="#32383C"/>
+                                        </svg>
+                                        |В наличии
+                                    .price Цена от: 100 000 ₽
+                                .button 
+                                    img(src='assets/img/incart.svg')
+                            .color-pick
+                                .text-gray Цвет: белый
+                                .colors 
+                                    .el Белый
+                                    .el.current Белый/Чёрный
+                                    .el Белый/Серый
+                                     
+                .el 
+                    .wrapper
+                        .mini-gallery
+                            .swiper-wrapper
+                                .swiper-slide 
+                                    .img-cont 
+                                            img(src='assets/img/section/3.png') 
+                                .swiper-slide 
+                                    .img-cont 
+                                            img(src='assets/img/section/3.png') 
+                                .swiper-slide 
+                                    .img-cont 
+                                            img(src='assets/img/section/3.png') 
+                            .swiper-pagination
+                        .title Раковина «Riccarda»     
+                        .info
+                            .prop Размеры:405х405х135
+                            .flex.justify-between
+                                div
+                                    .instock 
+                                        <svg width="5" height="6" viewBox="0 0 5 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect y="0.5" width="5" height="5" rx="2.5" fill="#32383C"/>
+                                        </svg>
+                                        |Под заказ
+                                    .price Цена от: 70 000 ₽
+                                .button 
+                                    img(src='assets/img/incart.svg')
+                .el 
+                    .wrapper
+                        .mini-gallery
+                            .swiper-wrapper
+                                .swiper-slide 
+                                    .img-cont 
+                                            img(src='assets/img/section/4.png') 
+                                .swiper-slide 
+                                    .img-cont 
+                                            img(src='assets/img/section/4.png')  
+                            .swiper-pagination
+                        .title Раковина «Rona» 
+                        .info
+                            .prop Размеры: ⌀ 405; h=150
+                            .flex.justify-between
+                                div
+                                    .instock 
+                                        <svg width="5" height="6" viewBox="0 0 5 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect y="0.5" width="5" height="5" rx="2.5" fill="#32383C"/>
+                                        </svg>
+                                        |В наличии
+                                    .price Цена от: 100 000 ₽
+                                .button 
+                                    img(src='assets/img/incart.svg')
+                .el 
+                    .wrapper
+                        .mini-gallery
+                            .swiper-wrapper
+                                .swiper-slide 
+                                    .img-cont 
+                                            img(src='assets/img/section/5.png')  
+                            .swiper-pagination
+                        .title Раковина «Sfera»  
+                        .info
+                            .prop Размеры: ⌀ 405; h=150
+                            .flex.justify-between
+                                div
+                                    .instock 
+                                        <svg width="5" height="6" viewBox="0 0 5 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect y="0.5" width="5" height="5" rx="2.5" fill="#32383C"/>
+                                        </svg>
+                                        |В наличии
+                                    .price Цена от: 100 000 ₽
+                                .button 
+                                    img(src='assets/img/incart.svg')
+                .el 
+                    .wrapper
+                        .mini-gallery
+                            .swiper-wrapper
+                                .swiper-slide 
+                                    .img-cont 
+                                            img(src='assets/img/section/6.png') 
+                                .swiper-slide 
+                                    .img-cont 
+                                            img(src='assets/img/section/6.png') 
+                                .swiper-slide 
+                                    .img-cont 
+                                            img(src='assets/img/section/6.png') 
+                                .swiper-slide 
+                                    .img-cont 
+                                            img(src='assets/img/section/6.png') 
+                            .swiper-pagination
+                        .title Раковина «Edda»   
+                        .info
+                            .prop Размеры: ⌀ 405; h=150
+                            .flex.justify-between
+                                div
+                                    .instock 
+                                        <svg width="5" height="6" viewBox="0 0 5 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect y="0.5" width="5" height="5" rx="2.5" fill="#32383C"/>
+                                        </svg>
+                                        |В наличии
+                                    .price Цена от: 100 000 ₽
+                                .button 
+                                    img(src='assets/img/incart.svg')
+            .paginator 
+                .img-cont
+                    img(src='assets/img/paginator/left.svg')
+                .cont 
+                    a.el.current 1
+                    a.el 2
+                    a.el 3
+                    a.el 4
+                    a.el 5
+                .img-cont
+                    img(src='assets/img/paginator/right.svg')

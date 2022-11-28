@@ -1,0 +1,30 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Каталох';
+  - var description = 'Каталохавая струница';
+  - var pageClass = 'index';
+  
+block content
+    .container 
+        .breadcrumbs 
+            .el Главная
+            .el Каталог
+        h1.text-center.mb-15 Каталог
+        .sections
+            a.el(style='background:url(/assets/img/sections/1.png)') 
+                .cont 
+                    .desc Комфорт и удобство
+                    .name Столешницы
+            a.el(style='background:url(/assets/img/sections/2.png)')
+                .cont 
+                    .desc Комфорт и удобство
+                    .name Столешницы
+            a.el(style='background:url(/assets/img/sections/3.png)')
+                .cont 
+                    .desc Комфорт и удобство
+                    .name Столешницы
+            a.el(style='background:url(/assets/img/sections/4.png)')
+                .cont 
+                    .desc Комфорт и удобство
+                    .name Столешницы 
