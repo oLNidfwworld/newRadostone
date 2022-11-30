@@ -89,6 +89,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }) 
     //#endregion
 
+    //#region Деталка
+        /** @var Поле со списком - выбор цвета */
+            const color_element= document.querySelector('.color-selector');
+    //#endregion
+
     //#region Чойсеры
         /** @var Сортировка */
             if(sort_element){
@@ -111,6 +116,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     itemSelectText: '',
                     classNames:{
                         containerOuter:'choices filter-field'
+                    }
+                });
+            }
+        
+        /** @var Выбор цвета */
+            if(color_element){
+                const color_field = new Choices(color_element,{
+                    allowHTML:true, 
+                    searchEnabled: false,
+                    position:'bottom',
+                    itemSelectText: '',
+                    classNames:{
+                        containerOuter:'choices color-selector'
                     }
                 });
             }

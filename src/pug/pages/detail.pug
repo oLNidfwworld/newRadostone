@@ -1,0 +1,60 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Деталка';
+  - var description = 'Детальнауя струница';
+  - var pageClass = 'index';
+
+block content
+    .container 
+        .breadcrumbs 
+            .el Главная
+            .el Каталог
+            .el Раковины
+            .el Раковина «Gratsiya heratsiya» 
+        h1.mb-15 Раковина «Gratsiya heratsiya» 
+        .detail
+            .wrapper 
+                .left-side 
+                    a(data-fancybox='gal' href='assets/img/detail/1.png').img-cont
+                        img(src='assets/img/detail/1.png')
+                    a(data-fancybox='gal' href='assets/img/detail/2.png').img-cont
+                        img(src='assets/img/detail/2.png')
+                    a(data-fancybox='gal' href='assets/img/detail/3.png').img-cont
+                        img(src='assets/img/detail/3.png')
+                    a(data-fancybox='gal' href='assets/img/detail/4.png').img-cont
+                        img(src='assets/img/detail/4.png')
+                .right-side
+                    .instock 
+                        <svg width="5" height="6" viewBox="0 0 5 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect y="0.5" width="5" height="5" rx="2.5" fill="#32383C"/>
+                        </svg>
+                        |Под заказ
+                    .prop Размеры: 600х345х150
+                    .color-pick
+                        .text-gray Цвет: белый
+                            .colors 
+                                .ell.current Белый
+                                .ell Белый/Чёрный
+                                .ell Белый/Серый
+                                .ell Бежевый 
+                                .ell Оливковый
+                                .ell Серый
+                                .ell Голубой
+                                .ell Бордовый
+                            select.color-selector
+                                option Белый
+                                option Белый/Чёрный
+                                option Белый/Серый
+                                option Бежевый 
+                                option Оливковый
+                                option Серый
+                                option Голубой
+                                option Бордовый
+                    .price Цена от: 
+                        span.font-bold 100 000 ₽
+                    .button(class='mt-[19px] mb-15') Заказать
+                    div Новые раковины ONDA — это современное и рациональное решение для вашей ванной комнаты. Стильные модели визуально увеличивают пространство, внедряя в него больше воздуха и расширяя тем самым границы интерьера.
+                        br
+                        br
+                        |Серия подвесных раковин изготовленные по технологии Solid Surface, раковины имеют полностью монолитную структуру по всей толщине изделия
