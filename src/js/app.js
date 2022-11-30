@@ -236,21 +236,18 @@ document.addEventListener('DOMContentLoaded', function() {
         
         burger.classList.add('move');
 
-        bg_burger.style["z-index"] = "1 "
-        bg_burger.style["background"] = "#0000007a "
+        bg_burger.classList.add('bg-burger-style')
         document.addEventListener("scroll", () => menu_scroll_controll(burger, bg_burger), {once: true});
     })
     burger_close.addEventListener('click', function() {
         burger.classList.remove('move');
 
-        bg_burger.style["z-index"] = "-1 "
-        bg_burger.style["background"] = "transparent "
+        bg_burger.classList.remove('bg-burger-style')
     })
     bg_burger.addEventListener("click", function(event) {
         burger.classList.remove('move');
 
-        bg_burger.style["z-index"] = "-1 "
-        bg_burger.style["background"] = "transparent "
+        bg_burger.classList.remove('bg-burger-style')
     })
 //#endregion 
 
@@ -259,6 +256,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function menu_scroll_controll(burger, bg_burger){
     burger.classList.remove('move')
-    bg_burger.style["z-index"] = "-1 "
-    bg_burger.style["background"] = "transparent "
+    bg_burger.classList.remove('bg-burger-style')
 }
