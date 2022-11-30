@@ -28,7 +28,8 @@ function debounce(callee, timeoutMs) {
 }
 
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
+    
     
 
     
@@ -45,6 +46,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const burger_close = document.querySelector('#close-burger'); 
         /** @var Элемент шапки  */
             const header = document.querySelector('header');
+        /** @var Задний фон меню */
+            const bg_burger = document.querySelector('.bg-burger')
+        /** @var Задний фон меню */
+            const burger = document.querySelector('.burger')
     //#endregion
 
     //#region Главная
@@ -148,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             var mask = IMask(el, maskOptions);
             let trys = false;
-            el.addEventListener('input', () => {
+            el.addEventListener('input', function() {
                 if (trys == false && mask.value[3] != '9' && mask.value[3] != undefined) {
                     mask.value = "+7 ";
 
@@ -158,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     if (expander) {
-        expander.addEventListener('click', () => {
+        expander.addEventListener('click', function() {
             expander.parentElement.classList.toggle('expanded');
             expander.classList.toggle('expanded');
         })
@@ -186,19 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
     
-    document.addEventListener("scroll", function () {
-        var st = window.pageYOffset;
-        if (window.pageYOffset > 115) {
-            if (st > lastScrollTop) {
-                header.classList.add('hide')
-                document.querySelector('.burger').classList.remove('move')
-            } else {
-                header.classList.remove('hide')
-
-            }
-            lastScrollTop = window.pageYOffset;
-        }
-    }, false);
+    
 
     document.addEventListener('mouseover', (e) => {
 
@@ -220,19 +213,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
         }
     })
+
+    document.addEventListener('scroll', function() {
+        var st = window.pageYOffset;
+        if (window.pageYOffset > 115) {
+            if (st > lastScrollTop) {
+                header.classList.add('hide')
+            } else {
+                header.classList.remove('hide')
+
+            }
+            lastScrollTop = window.pageYOffset;
+        }
+    }, false)
      
-    document.querySelector('.language').addEventListener('click', () => {
+    document.querySelector('.language').addEventListener('click', function() {
         document.querySelector('.select').classList.toggle('drop');
     })
-    burger_open.addEventListener('click', () => {
-        document.querySelector('.burger').classList.add('move');
+    burger_open.addEventListener('click', function(e) {
+        e.preventDefault()
+        e.stopPropagation()
+        
+        burger.classList.add('move');
+
+        bg_burger.style["z-index"] = "1 "
+        bg_burger.style["background"] = "#0000007a "
+        document.addEventListener("scroll", () => menu_scroll_controll(burger, bg_burger), {once: true});
     })
-    burger_close.addEventListener('click', () => {
-        document.querySelector('.burger').classList.remove('move');
+    burger_close.addEventListener('click', function() {
+        burger.classList.remove('move');
+
+        bg_burger.style["z-index"] = "-1 "
+        bg_burger.style["background"] = "transparent "
+    })
+    bg_burger.addEventListener("click", function(event) {
+        burger.classList.remove('move');
+
+        bg_burger.style["z-index"] = "-1 "
+        bg_burger.style["background"] = "transparent "
     })
 //#endregion 
 
-
-
 })
 
+
+function menu_scroll_controll(burger, bg_burger){
+    burger.classList.remove('move')
+    bg_burger.style["z-index"] = "-1 "
+    bg_burger.style["background"] = "transparent "
+}
