@@ -53,10 +53,15 @@ header.hide{
     top: -105px;
     transition: 0.6s;
 }
-
+.bg-burger{
+    @apply w-screen h-[300vh] absolute top-0 left-[-100%] z-[1];
+    background: #0000007a;
+    // -webkit-transition: 0.45s ease;
+    // transition: 0.45s ease;
+}
 
 .bg-burger-style{
-    @apply w-screen h-[300vh] absolute top-0 z-[1];
+    @apply w-screen h-[300vh] absolute top-0 left-0 z-[1];
     background: #0000007a;
     -webkit-transition: 0.45s ease;
     transition: 0.45s ease;
@@ -64,7 +69,9 @@ header.hide{
 
 .burger{
     width: 320px;
-    height: 575px;
+    max-height: 683px;
+    height: 100vh;
+    overflow-y: scroll;
     position: absolute;
     background-color: var(--white);
     top: 0;
