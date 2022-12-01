@@ -1,0 +1,67 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Контакты';
+  - var description = 'Контакты';
+  - var pageClass = 'index';
+
+block content
+    .container 
+        .breadcrumbs 
+            .el Главная
+            .el Контакты
+        h1.mb-15 Контакты
+
+        .contacts
+            .main_contacts 
+                .left-map_contacts
+                    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A3f0069dac1cf9859a032070445cdf7537be143335d4bd31ee525680c41dfca63&amp;width=100%25&amp;height=100%&amp;lang=ru_RU&amp;scroll=true"></script>
+
+                .contacts_text
+                    .corp-client_content 
+                        .title_contacts Отдел по работе с корпоративными клиентами
+                        .tel-items_contacts 
+                            .tel-item_contacts 
+                                a(href="tel:+79855063882") +7 (985) 506 38 82
+                            .tel-item_contacts 
+                                a(href="tel:+79855063882") +7 (985) 506 38 82
+                    .off-pred_content 
+                        .title_contacts Официальное представительство и производство в РФ
+                        .adress_contacts 142664, Россия, Московская обл., ГО Орехово - Зуевский,  , офис 9.
+                        .connect-company 
+                            .email-contacts 
+                                a(href="mailto:radostone.sale@yandex.ru")  radostone.sale@yandex.ru
+                            .tel-item_contacts 
+                                a(href="tel:+79855063882") +7 (985) 506 38 82
+                    .warehouse_content 
+                        .title_contacts Склады
+                        .warehouse-items 
+                            .warehouse-item 
+                                .adress_contacts г. Климовск, улица Ленина, д. 8
+                                .coords_contacts Координаты склада для навигатора: 55.362419, 37.521399
+                                .connect-company 
+                                    .tel-item_contacts
+                                        a(href="tel:+79166004493") +7 (916) 600 44 93 
+                                    .download_contacts 
+                                        a(href="") скачать схему проезда
+                            .warehouse-item 
+                                .adress_contacts д. Кабанова, тер. Индустриальный парк Кабаново, д.1
+                                .coords_contacts Координаты склада для навигатора: 55.362419, 37.521399
+                                .connect-company 
+                                    .tel-item_contacts
+                                        a(href="tel:+79166004493") +7 (916) 600 44 93 
+                                    .download_contacts 
+                                        a(href="") скачать схему проезда
+
+                .right-map_contacts
+                    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A3f0069dac1cf9859a032070445cdf7537be143335d4bd31ee525680c41dfca63&amp;width=100%25&amp;height=100%&amp;lang=ru_RU&amp;scroll=true"></script>
+        h1.mb-15.text-center Свяжитесь с нами
+        .grid(class='gap-[30px]  grid-cols-1 lg:grid-cols-3')
+            input(type="text" placeholder='Ваше имя')
+            input(type="text" placeholder='Ваше город')
+            input(type="phone" placeholder='+7 (_ _ _) _ _ _ - _ _ - _ _')
+            input(type="text" placeholder='Эл почта')
+            input(type="text" class='lg:col-span-2' placeholder='Сообщение')
+        .text-center.my-5.text-gray(class='leading-[18px]') Нажимая на кнопку «Отправить», я соглашаюсь с Политикой конфиденциальности и даю согласие на обработку персональных данных
+        .w-fit.mx-auto
+            .button Отправить   

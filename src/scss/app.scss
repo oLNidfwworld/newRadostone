@@ -21,6 +21,15 @@
 /* Vendor */
 
 /* Components */
+@import 'popups/css/popupS.css'; 
+@import "@fancyapps/ui/dist/fancybox.css";
+@import 'wowjs/css/libs/animate.css'; 
+
+// @import url("choices.js/public/assets/styles/base.css");
+// @import url("choices.js/public/assets/styles/base.min.css");
+@import url("choices.js/public/assets/styles/choices.css");
+@import url("choices.js/public/assets/styles/choices.min.css");
+
 /* Browser specific styles */
 @import 'dirty/hacks';
 
@@ -28,19 +37,13 @@
 /* Page layout */
 @import 'blocks/header';
 @import 'blocks/footer';
-@import "@fancyapps/ui/dist/fancybox.css";
+@import 'blocks/drag-n-drop/style.scss';
+
 /* Pages styles */
 @import 'demo';
 
 
-@import 'popups/css/popupS.css';
 
-@import 'wowjs/css/libs/animate.css'; 
-
-// @import url("choices.js/public/assets/styles/base.css");
-// @import url("choices.js/public/assets/styles/base.min.css");
-@import url("choices.js/public/assets/styles/choices.css");
-@import url("choices.js/public/assets/styles/choices.min.css");
 
 
 *{
@@ -49,8 +52,10 @@
 }
 
 .wrapper-content{
+    @apply text-black;
     padding-top: 110px;
     padding-bottom: 100px;
+    min-height: 100vh;
 
 
 
@@ -105,6 +110,8 @@ input::placeholder{
     color: var(--black);
 }
 
+
+
 .button  .ripple{
      
     position: absolute;
@@ -133,7 +140,7 @@ hr.rounded-\[90px\]{
 }
 
 .breadcrumbs{
-    @apply flex  overflow-x-scroll;
+    @apply flex  ;
     .el{
         @apply text-gray text-[12px] sm:text-[16px] py-10;
     }::before{
@@ -671,10 +678,105 @@ hr.rounded-\[90px\]{
     }
 }
 
+.main_contacts{
+    @apply md:grid gap-x-[36px] gap-y-[67px] lg:gap-[37px];
+    grid-template-columns: repeat(2, 1fr); 
+
+   
+
+    // "left_map corp right_map"
+    // "left_map off right_map"
+    // "left_map warehouse right_map"
+
+    .left-map_contacts{
+        @apply hidden md:block;
+        grid-area: left_map;
+        background-color: #C4C4C4;
+        
+        filter: grayscale(1);
+    }
+
+    .contacts_text{
+        @apply flex flex-col llg:p-[40px] gap-[50px];
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 140%;
+        color: var(--black);
+        grid-area: contacts-text;
+
+        .corp-client_content {
+            grid-area: corp;
+
+            .tel-items_contacts{
+                @apply flex gap-[30px];
+            }
+        }
+        .off-pred_content {
+            grid-area: off;
+            @apply grid gap-[17px];
+        }
+        .warehouse_content{
+            grid-area: warehouse;
+            
+            .warehouse-items{
+                @apply grid gap-[50px];
+
+                .warehouse-item{
+                    @apply grid gap-[17px];
+                }
+            }
+        }
+        .connect-company{
+            @apply grid gap-[12px];
+        }
+        .tel-item_contacts{
+            width: fit-content;
+        }
+        .title_contacts{
+            font-weight: 400;
+            font-size: 30px;
+            line-height: 140%;
+            color: var(--black);
+            padding-bottom: 20px;
+        }
+        .email-contacts{
+            font-weight: 700;
+            font-size: 18px;
+            border-bottom: solid 1px var(--gray);
+            width: fit-content;
+        }
+        .download_contacts{
+            font-weight: 700;
+            font-size: 18px;
+            border-bottom: solid 1px var(--gray);
+            width: fit-content;
+        }
+    }
+
+    .right-map_contacts{
+        @apply hidden md:block;
+        grid-area: right_map;
+        background-color: #C4C4C4;
+        
+        filter: grayscale(1);
+    }
+}
+
 }
 
 @media (min-width:480px) {
     
+} 
+@media (min-width:720px) {
+    .top-bar{
+        grid-template-columns: 3fr 1fr !important;
+    }
+    .main_contacts{ 
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: 
+        "contacts-text left_map  "
+        "contacts-text right_map";}
+
 }
 @media (min-width:1024px) {
     .sep{
@@ -687,12 +789,9 @@ hr.rounded-\[90px\]{
             }
         }
     }
-}
-@media (min-width:720px) {
-    .top-bar{
-        grid-template-columns: 3fr 1fr !important;
-    }
-}
+    
+     
+} 
 @media (min-width:1280px) {
     .top-bar{
         grid-template-columns: 4fr 3fr 1fr !important;
@@ -703,6 +802,13 @@ hr.rounded-\[90px\]{
                 grid-template-columns: 4fr 7fr 6fr  !important;
             }
         }
+    }
+    .main_contacts{
+        grid-template-columns: repeat(3, 1fr) !important;
+        grid-template-areas: 
+        "left_map contacts-text right_map"
+        "left_map contacts-text right_map"
+        "left_map contacts-text right_map" !important;
     }
 }
 @media (min-width:1440px) {
@@ -720,17 +826,9 @@ hr.rounded-\[90px\]{
 }
 
 ::selection {
-    background: var(--gray);
-    color: var(--white);
-    text-shadow: none;
+    @apply bg-gray text-white shadow-none; 
 }
-  
-::-moz-selection {
-    background: var(--gray);
-    color: var(--white);
-    text-shadow: none;
-}
-
+   
 .choices{
     border:1px solid var(--black);
     height: 52px;
@@ -771,4 +869,8 @@ hr.rounded-\[90px\]{
 .choices__list--dropdown .choices__item--selectable.is-highlighted, .choices__list[aria-expanded] .choices__item--selectable.is-highlighted{
     background-color: transparent;
     font-weight: 700;
+}
+
+.contacts{
+    @apply mb-25;
 }

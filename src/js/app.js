@@ -11,6 +11,7 @@ import Choices from 'choices.js';
 import IMask from 'imask';
 // import lax from 'lax.js'
 
+const DragNDrop = require('./drag-n-drop/main');
 const popupS = require('popups');
 
 function debounce(callee, timeoutMs) {
@@ -72,6 +73,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const filter_mob  = document.querySelector('.top-bar #mob-sett');
         /** @var Поиск */
             const search_field  = document.querySelector('.top-bar .search');
+        
+                
+
     //#endregion 
 
     //#region Слайдеры
@@ -138,7 +142,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
     //#endregion 
-
+    const dd = new DragNDrop(document.querySelector('.drag-n-drop'));
+        console.log(dd._element.classList);
 //#endregion
     
 //#region Прослушки     
@@ -225,7 +230,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             lastScrollTop = window.pageYOffset;
         }
-    }, false)
+    })
      
     document.querySelector('.language').addEventListener('click', function() {
         document.querySelector('.select').classList.toggle('drop');
@@ -249,6 +254,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         bg_burger.classList.remove('bg-burger-style')
     })
+ 
+
 //#endregion 
 
 })
@@ -258,3 +265,5 @@ function menu_scroll_controll(burger, bg_burger){
     burger.classList.remove('move')
     bg_burger.classList.remove('bg-burger-style')
 }
+
+
