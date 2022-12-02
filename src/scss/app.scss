@@ -38,6 +38,8 @@
 @import 'blocks/header';
 @import 'blocks/footer';
 @import 'blocks/drag-n-drop/style.scss';
+@import 'blocks/pages/gde-kupit.scss';
+@import 'blocks/pages/collab.scss';
 
 /* Pages styles */
 @import 'demo';
@@ -550,7 +552,7 @@ hr.rounded-\[90px\]{
     }
 }
 
-.map{
+.map_index{
     @apply h-fit relative;
     .map-container{
         @apply my-25 w-full h-[880px] lg:h-[440px]; 

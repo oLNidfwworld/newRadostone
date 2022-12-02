@@ -1,0 +1,24 @@
+.wrapper-content{
+    .about-rakovina{
+        @apply mb-25 grid grid-cols-2 gap-15;
+    
+        .benefs{
+            @apply flex flex-col justify-around items-center;
+            .el{
+                @apply gap-[30px] flex flex-row;
+                .img-cont{
+                    min-width:76px;
+                }
+                .title{
+                    @apply font-bold text-26px;
+                }
+                .desc{
+                    @apply   text-18px;
+                }
+            }
+        }
+    }
+    .geo-partners{
+        background-image: url(/src/assets/img/euro.png);
+    }
+}

@@ -1,0 +1,50 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Где купить?';
+  - var description = 'А';
+  - var pageClass = 'index';
+
+block content
+    .container 
+        .breadcrumbs 
+                .el Главная
+                .el Где купить?
+        h1.mb-15.text-center Где купить?
+        .gde-kupit 
+            .map_gk 
+                <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A32df483222def16a30297b6b3ba6e3a5ec8e46bc37d250360e3ac720149d9a74&amp;width=100%25&amp;height=100%&amp;lang=ru_RU&amp;scroll=true"></script>
+            div 
+                .text-18px.font-bold Выберите город
+                select.cities
+                    option Москва 
+                    option СПБ 
+                    option Тамбов 
+                    option Магадан 
+                .info
+                    .url santehnica.ru
+                    .adress Южнопортовая ул., 32, стр. 11 (этаж 3)
+                        br
+                        |+7 (495) 649 88 32
+                .info
+                    .url santehnica.ru
+                    .adress 41км МКАД
+                        br
+                        |ТК "Славянский Мир"(Мельница)
+                        br
+                        |Павильон Б19/1 - заезд с внешней стороны МКАД
+                        br
+                        |8 (499) 753 88 88
+
+
+        h1.mb-15.mt-25.text-center Свяжитесь с нами
+        .grid(class='gap-[30px]  grid-cols-1 lg:grid-cols-3')
+                input(type="text" placeholder='Ваше имя')
+                input(type="text" placeholder='Ваше город')
+                input(type="phone" placeholder='+7 (_ _ _) _ _ _ - _ _ - _ _')
+                input(type="text" placeholder='Эл почта')
+                input(type="text" class='lg:col-span-2' placeholder='Сообщение')
+        .text-center.my-5.text-gray(class='leading-[18px]') Нажимая на кнопку «Отправить», я соглашаюсь с Политикой конфиденциальности и даю согласие на обработку персональных данных
+        .w-fit.mx-auto
+                .button Отправить
+        

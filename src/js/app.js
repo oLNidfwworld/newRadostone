@@ -29,124 +29,146 @@ function debounce(callee, timeoutMs) {
 }
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    
-    
+document.addEventListener('DOMContentLoaded', function () {
 
-    
-//#region Переменные
+
+
+
+    //#region Переменные
     var lastScrollTop = 0;
     const root = document.querySelector(':root');
     const computedStyles = getComputedStyle(root);
     var phone_inputs = document.querySelectorAll('input[type=phone]');
 
     //#region Шапка
-        /** @var Кнопка открытия бургера  */
-            const burger_open = document.querySelector('.burger-button');
-        /** @var Кнопка закрытия бургера  */
-            const burger_close = document.querySelector('#close-burger'); 
-        /** @var Элемент шапки  */
-            const header = document.querySelector('header');
-        /** @var Задний фон меню */
-            const bg_burger = document.querySelector('.bg-burger')
-        /** @var Задний фон меню */
-            const burger = document.querySelector('.burger')
+    /** @var Кнопка открытия бургера  */
+    const burger_open = document.querySelector('.burger-button');
+    /** @var Кнопка закрытия бургера  */
+    const burger_close = document.querySelector('#close-burger');
+    /** @var Элемент шапки  */
+    const header = document.querySelector('header');
+    /** @var Задний фон меню */
+    const bg_burger = document.querySelector('.bg-burger')
+    /** @var Задний фон меню */
+    const burger = document.querySelector('.burger')
     //#endregion
 
     //#region Главная
-        /** @var Кнопка разворачивания контента  */
-            const expander = document.querySelector('.expand-this');
+    /** @var Кнопка разворачивания контента  */
+    const expander = document.querySelector('.expand-this');
     //#endregion 
 
     //#region Раздел
-        /** @var Поле со списком - сортировка */
-            const sort_element= document.querySelector('#_sort');
-        /** @var Поле со списком - фильтрация */
-            const filter_element= document.querySelector('#_filter');
-        /** @var Адаптивная кнопка для фильтра и сортировки */
-            const filter_sort_buttond  = document.querySelector('.top-bar #sett');
-        /** @var Адаптивная кнопка для поиска */
-            const search_button  = document.querySelector('.top-bar .lupa');
-        /** @var Элементы раздела */
-            const block_elements  = document.querySelectorAll('.display-block .el');
-        /** @var Мобильный фильтр */
-            const filter_mob  = document.querySelector('.top-bar #mob-sett');
-        /** @var Поиск */
-            const search_field  = document.querySelector('.top-bar .search');
-        
-                
+    /** @var Поле со списком - сортировка */
+    const sort_element = document.querySelector('#_sort');
+    /** @var Поле со списком - фильтрация */
+    const filter_element = document.querySelector('#_filter');
+    /** @var Адаптивная кнопка для фильтра и сортировки */
+    const filter_sort_buttond = document.querySelector('.top-bar #sett');
+    /** @var Адаптивная кнопка для поиска */
+    const search_button = document.querySelector('.top-bar .lupa');
+    /** @var Элементы раздела */
+    const block_elements = document.querySelectorAll('.display-block .el');
+    /** @var Мобильный фильтр */
+    const filter_mob = document.querySelector('.top-bar #mob-sett');
+    /** @var Поиск */
+    const search_field = document.querySelector('.top-bar .search');
+
+
 
     //#endregion 
 
     //#region Слайдеры
-        /** @var Верхний слайдер на главной */
-        const top_slider = new Swiper('.top-slider', {
-            slidesPerView: 1,
-            rewind: true,
-        }) 
-        /** @var Слайдер на элементах раздела */
-        const items_gal = new Swiper('.mini-gallery', {
-            modules: [Pagination,EffectCoverflow],  
-            slidesPerView: 1,
-            spaceBetween:0, 
-            effect:'coverflow',
-            rewind: true,
-            grabCursor:true,
-            pagination:{
-                el:'.swiper-pagination'
-            }
-        }) 
+    /** @var Верхний слайдер на главной */
+    const top_slider = new Swiper('.top-slider', {
+        slidesPerView: 1,
+        rewind: true,
+    })
+    /** @var Слайдер на элементах раздела */
+    const items_gal = new Swiper('.mini-gallery', {
+        modules: [Pagination, EffectCoverflow],
+        slidesPerView: 1,
+        spaceBetween: 0,
+        effect: 'coverflow',
+        rewind: true,
+        grabCursor: true,
+        pagination: {
+            el: '.swiper-pagination'
+        }
+    })
     //#endregion
 
     //#region Деталка
-        /** @var Поле со списком - выбор цвета */
-            const color_element= document.querySelector('.color-selector');
+    /** @var Поле со списком - выбор цвета */
+    const color_element = document.querySelector('.color-selector');
+    //#endregion
+
+    //#region Контакты
+    /** @var Поле со списком - города */
+    const cities_element = document.querySelector('.cities');
     //#endregion
 
     //#region Чойсеры
-        /** @var Сортировка */
-            if(sort_element){
-                const sort_field = new Choices(sort_element,{
-                    allowHTML:true, 
-                    searchEnabled: false,
-                    position:'bottom',
-                    itemSelectText: '',
-                    classNames:{
-                        containerOuter:'choices sort-field'
-                    }
-                });
+    /** @var Сортировка */
+    if (sort_element) {
+        const sort_field = new Choices(sort_element, {
+            allowHTML: true,
+            searchEnabled: false,
+            position: 'bottom',
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices sort-field'
             }
-        /** @var Фильтрация */
-            if(filter_element){
-                const filter_field = new Choices(filter_element,{
-                    allowHTML:true, 
-                    searchEnabled: false,
-                    position:'bottom',
-                    itemSelectText: '',
-                    classNames:{
-                        containerOuter:'choices filter-field'
-                    }
-                });
+        });
+    }
+    /** @var Фильтрация */
+    if (filter_element) {
+        const filter_field = new Choices(filter_element, {
+            allowHTML: true,
+            searchEnabled: false,
+            position: 'bottom',
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices filter-field'
             }
-        
-        /** @var Выбор цвета */
-            if(color_element){
-                const color_field = new Choices(color_element,{
-                    allowHTML:true, 
-                    searchEnabled: false,
-                    position:'bottom',
-                    itemSelectText: '',
-                    classNames:{
-                        containerOuter:'choices color-selector'
-                    }
-                });
+        });
+    }
+
+    /** @var Выбор цвета */
+    if (color_element) {
+        const color_field = new Choices(color_element, {
+            allowHTML: true,
+            searchEnabled: false,
+            position: 'bottom',
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices color-selector'
             }
+        });
+    }
+    /** @var Выбор цвета */
+    if (cities_element) {
+        const cities_field = new Choices(cities_element, {
+            allowHTML: true,
+            searchEnabled: false,
+            position: 'bottom',
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices cities-selector'
+            }
+        });
+    }
     //#endregion 
-    const dd = new DragNDrop(document.querySelector('.drag-n-drop'));
-        console.log(dd._element.classList);
-//#endregion
-    
-//#region Прослушки     
+
+    try{
+        const dd = new DragNDrop('.drag-n-drop');
+    }catch{
+
+    }
+
+    //#endregion
+
+    //#region Прослушки     
     if (phone_inputs) {
         phone_inputs.forEach((el) => {
             var maskOptions = {
@@ -158,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             var mask = IMask(el, maskOptions);
             let trys = false;
-            el.addEventListener('input', function() {
+            el.addEventListener('input', function () {
                 if (trys == false && mask.value[3] != '9' && mask.value[3] != undefined) {
                     mask.value = "+7 ";
 
@@ -168,35 +190,35 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     if (expander) {
-        expander.addEventListener('click', function() {
+        expander.addEventListener('click', function () {
             expander.parentElement.classList.toggle('expanded');
             expander.classList.toggle('expanded');
         })
     }
-    if (block_elements){
-        block_elements.forEach((el)=>{
-            el.addEventListener('mouseover',()=>{
+    if (block_elements) {
+        block_elements.forEach((el) => {
+            el.addEventListener('mouseover', () => {
                 el.classList.add('hover');
             })
         })
-        block_elements.forEach((el)=>{
-            el.addEventListener('mouseout',()=>{
+        block_elements.forEach((el) => {
+            el.addEventListener('mouseout', () => {
                 el.classList.remove('hover');
             })
         })
     }
-    if(filter_sort_buttond){
-        filter_sort_buttond.addEventListener('click',()=>{
+    if (filter_sort_buttond) {
+        filter_sort_buttond.addEventListener('click', () => {
             filter_mob.classList.toggle('show')
         })
     }
-    if(search_button){
-        search_button.addEventListener('click',()=>{
+    if (search_button) {
+        search_button.addEventListener('click', () => {
             search_field.classList.toggle('show');
         })
     }
-    
-    
+
+
 
     document.addEventListener('mouseover', (e) => {
 
@@ -219,7 +241,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     })
 
-    document.addEventListener('scroll', function() {
+    document.addEventListener('scroll', function () {
         var st = window.pageYOffset;
         if (window.pageYOffset > 115) {
             if (st > lastScrollTop) {
@@ -231,37 +253,37 @@ document.addEventListener('DOMContentLoaded', function() {
             lastScrollTop = window.pageYOffset;
         }
     })
-     
-    document.querySelector('.language').addEventListener('click', function() {
+
+    document.querySelector('.language').addEventListener('click', function () {
         document.querySelector('.select').classList.toggle('drop');
     })
-    burger_open.addEventListener('click', function(e) {
+    burger_open.addEventListener('click', function (e) {
         e.preventDefault()
         e.stopPropagation()
-        
+
         burger.classList.add('move');
 
         bg_burger.classList.add('bg-burger-style')
-        document.addEventListener("scroll", () => menu_scroll_controll(burger, bg_burger), {once: true});
+        document.addEventListener("scroll", () => menu_scroll_controll(burger, bg_burger), { once: true });
     })
-    burger_close.addEventListener('click', function() {
+    burger_close.addEventListener('click', function () {
         burger.classList.remove('move');
 
         bg_burger.classList.remove('bg-burger-style')
     })
-    bg_burger.addEventListener("click", function(event) {
+    bg_burger.addEventListener("click", function (event) {
         burger.classList.remove('move');
 
         bg_burger.classList.remove('bg-burger-style')
     })
- 
 
-//#endregion 
+
+    //#endregion 
 
 })
 
 
-function menu_scroll_controll(burger, bg_burger){
+function menu_scroll_controll(burger, bg_burger) {
     burger.classList.remove('move')
     bg_burger.classList.remove('bg-burger-style')
 }

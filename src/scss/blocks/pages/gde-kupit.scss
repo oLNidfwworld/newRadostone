@@ -1,0 +1,36 @@
+.wrapper-content{
+    .gde-kupit{
+        @apply grid;
+        gap: 50px;
+        .map_gk{
+            height: 600px;
+            filter: grayscale(1);
+        }
+
+        .cities-selector{
+            @apply my-15;
+        }
+
+        .info{
+            @apply mb-[20px];
+            border: var(--gray) 1px solid;
+            padding: 19px 22px;
+            .url{
+                @apply text-18px font-bold mb-4;
+            }
+            .adress{
+                
+            }
+        }
+
+    }
+}
+
+@media (min-width:1024px) {
+    .wrapper-content{
+        .gde-kupit{
+            gap: 60px;
+            grid-template-columns: 2fr 1fr;
+        }
+    }
+}
