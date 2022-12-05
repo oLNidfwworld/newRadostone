@@ -1,6 +1,6 @@
 import '../scss/app.scss';
 
-import Swiper, { Autoplay, EffectCards, EffectCoverflow, EffectCreative, EffectCube, EffectFlip, Grid, Navigation, Pagination } from 'swiper';
+import Swiper, { Thumbs, Autoplay, EffectCards, EffectCoverflow, EffectCreative, EffectCube, EffectFlip, Grid, Navigation, Pagination } from 'swiper';
 Swiper.use([Navigation]);
 import 'swiper/css';
 import 'swiper/css/grid';
@@ -96,6 +96,80 @@ document.addEventListener('DOMContentLoaded', function () {
             el: '.swiper-pagination'
         }
     })
+
+    /** @var Слайдер thumb картинок -> текста */
+    const story_img_slider_thumbs =  new Swiper('.story-slider-img-thumbs',{
+        modules:[Thumbs,Navigation],
+        direction:'vertical',
+        freeMode:true,
+        watchSlidesProgress: true,
+        allowTouchMove:false
+    })
+    
+    /** @var Слайдер thumb текста */
+    const story_text_slider_thumbs = new Swiper('.story-slider-text-thumbs',{
+        modules:[Thumbs],
+        direction:'horizontal',
+        freeMode:true,
+        watchSlidesProgress: true,
+        slidesPerView:1,
+        thumbs: {
+            swiper: story_img_slider_thumbs,
+         },
+         allowTouchMove:false
+    })
+
+    
+   
+    /** @var Слайдер сториборд*/ 
+    const story_slider = new Swiper('.story-slider',{
+        modules:[Thumbs,Autoplay], 
+        direction:'vertical',
+        thumbs: {
+            swiper: story_text_slider_thumbs,
+         },
+        autoplay:{
+            delay:9000,
+        },
+        slidesPerView:3,
+        // slidesPerGroup:3, 
+        initialSlide:0,
+        centeredSlides: true,
+        centeredSlidesBounds: true,
+       
+    })
+    const observer = new MutationObserver(()=>{
+        slides.forEach(slide=>{ 
+
+            if(slide.classList.contains('swiper-slide-prev')){
+                slide.querySelector('.text-cont').addEventListener('click',()=>story_slider.slidePrev(300))
+            }else if (slide.classList.contains('swiper-slide-next')){
+                slide.querySelector('.text-cont').addEventListener('click',()=>story_slider.slideNext(300))
+            }
+        })
+    })
+    const slides = document.querySelectorAll('.story-slider .swiper-slide');
+    
+    slides.forEach(slide=>{
+        observer.observe(slide,{
+            attributes:true
+        });
+        if(slide.classList.contains('swiper-slide-prev')){
+            slide.querySelector('.text-cont').addEventListener('click',()=>story_slider.slidePrev(300))
+        }else if (slide.classList.contains('swiper-slide-next')){
+            slide.querySelector('.text-cont').addEventListener('click',()=>story_slider.slideNext(300))
+        }
+    })
+
+    
+    
+   const reviews_slider = new Swiper('.reviews',{
+        modules:[Pagination],
+        pagination:{
+            el:'.swiper-pagination'
+        }
+   })
+
     //#endregion
 
     //#region Деталка
@@ -165,6 +239,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }catch{
 
     }
+    
+
 
     //#endregion
 

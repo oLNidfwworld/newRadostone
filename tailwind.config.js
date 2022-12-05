@@ -115,8 +115,38 @@ module.exports = {
             maxWidth: '1440px',
             padding:'0px'
           },
-
+          
+          
+        },
+        '.about-rakovina': {
+          maxWidth: '100%',
+          padding:'0 15px',
+          '@screen xs': {
+          },
+          '@screen sm': {
+            maxWidth: '480px',
+            padding:'0 30px',
+            margin:'auto'
+          },
+          '@screen md': {
+            maxWidth: '720px',
+            padding:'0 28px',
+          },
+          '@screen lg': {
+            maxWidth: '980px', 
+            padding:'0 33px',
+          },
+          '@screen llg': {
+            maxWidth: '100%', 
+            padding:'0' 
+          },
+          '@screen xl': {
+            
+          },
+          
+          
         }
+        
       })
     })
   ],

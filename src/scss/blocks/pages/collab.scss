@@ -1,24 +1,28 @@
 .wrapper-content{
     .about-rakovina{
-        @apply mb-25 grid grid-cols-2 gap-15;
+        @apply mb-25 grid grid-cols-1 llg:grid-cols-2 gap-15;
     
         .benefs{
-            @apply flex flex-col justify-around items-center;
+            @apply flex flex-col gap-15 llg:gap-0 justify-around items-center llg:pr-3;
             .el{
                 @apply gap-[30px] flex flex-row;
                 .img-cont{
                     min-width:76px;
                 }
                 .title{
-                    @apply font-bold text-26px;
+                    @apply font-bold text-18px sm:text-26px;
                 }
                 .desc{
-                    @apply   text-18px;
+                    @apply text-[15px] sm:text-18px;
                 }
             }
         }
     }
     .geo-partners{
+        @apply lg:py-[120px] md:py-[90px] my-[100px] bg-cover md:bg-auto;
         background-image: url(/src/assets/img/euro.png);
+        background-repeat: no-repeat;
+        background-position: right;
+        
     }
 }

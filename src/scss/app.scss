@@ -40,6 +40,7 @@
 @import 'blocks/drag-n-drop/style.scss';
 @import 'blocks/pages/gde-kupit.scss';
 @import 'blocks/pages/collab.scss';
+@import 'blocks/pages/aboutus.scss';
 
 /* Pages styles */
 @import 'demo';
@@ -53,11 +54,31 @@
     font-family: Roboto-Condensed;
 }
 
+a{
+    position: relative;
+    cursor: pointer;
+}
+
+a::before{
+    content: '';
+    width: 0;
+    bottom: 0;
+    position: absolute;
+    height: 1px;
+    background-color: var(--gray);
+    transition: 0.3s;
+}
+a:hover::before{
+    width: 100%;
+    transition: 0.3s;
+}
+
 .wrapper-content{
     @apply text-black;
     padding-top: 110px;
     padding-bottom: 100px;
     min-height: 100vh;
+
 
 
 
